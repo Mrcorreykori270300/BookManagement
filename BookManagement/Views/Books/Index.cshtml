@@ -1,0 +1,49 @@
+﻿@model List<Book>
+<div class="container">
+
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Book List</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Books" asp-action="Create" class="btn btn-primary">
+                <i class="bi bi-plus-circle "></i> Add Category
+            </a>
+        </div>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Auther</th>
+                <th scope="col">List Price </th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Title</td>
+                <td>@item.Description</td>
+                <td>@item.Author</td>
+                <td>@item.ListPrice</td>
+
+                <td class="w-75 btn-group" role="group">
+                    <a asp-controller="Books" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">
+                        <i class="bi bi-pencil-square"></i>
+                        Edit
+                    </a>
+                   
+                    <a asp-controller="Books" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">
+                        <i class="bi bi-trash"></i>
+                        Delete
+                    </a>
+
+                </td>
+            </tr>
+        }
+        <tbody>
+        </tbody>
+    </table>
+</div>
