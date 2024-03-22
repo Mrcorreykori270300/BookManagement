@@ -14,7 +14,7 @@ namespace BookManagement.Controllers
         }
         public IActionResult Index()
         {
-            List<Book> bookObject = _db.Books.ToList();
+            IEnumerable<Book> bookObject = _db.Books.ToList();
             return View(bookObject);
         }
         public IActionResult Create()
